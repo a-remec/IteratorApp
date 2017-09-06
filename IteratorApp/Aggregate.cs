@@ -32,8 +32,7 @@ namespace IteratorApp
                     break;
             }
 
-
-            return new retVal;
+            return retVal;
         }
 
         private Iterator CreateTotalIterator(Aggregate ag)
@@ -46,5 +45,9 @@ namespace IteratorApp
             return new LetterIterator(ag);
         }
 
+        public override Iterator CreateIterator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

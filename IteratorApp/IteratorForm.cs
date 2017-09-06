@@ -42,12 +42,6 @@ namespace IteratorApp
             ag.Add("Derek");
         }
 
-        private void btnLetterIterator_Click(object sender, EventArgs e)
-        {
-            Iterator iter = ag.CreateIterator(IteratorType.LetterIterator);
-            PopulateListBox(iter, lbLetterIterator);
-        }
-
         public void PopulateListBox(Iterator iter, ListBox lb)
         {
             lb.Items.Clear();
@@ -55,6 +49,22 @@ namespace IteratorApp
             {
                 lb.Items.Add(iter.CurrentItem());
             }
+        }
+
+        private void btnLetterIterator_Click(object sender, EventArgs e)
+        {
+            Iterator iter = ag.CreateIterator(IteratorType.LetterIterator);
+            PopulateListBox(iter, lbLetterIterator);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void IteratorForm_Load(object sender, EventArgs e)

@@ -18,35 +18,35 @@ namespace IteratorApp
 
     public class ConcreteIterator : Iterator
     {
-        private ConcreteAggregate _aggregate;
-        private int _current = 0;
+        int currIndex;
 
-        // Constructor
-        public ConcreteIterator(ConcreteAggregate aggregate)
+        public ConcreteIterator(Aggregate ag)
         {
-            this._aggregate = aggregate;
+            aggregate = ag;
         }
 
-        // Gets first iteration item
-        public override object First()
+        public override void First()
         {
-            return _aggregate[0];
+            currIndex = 0;
         }
 
-        // Gets next iteration item
-        public override object Next()
+        public override void Next()
         {
-            object ret = null;
-            if (_current < _aggregate.Count - 1)
-            {
-                ret = _aggregate[++_current];
-            }
-
-            return ret;
+            currIndex++;
         }
 
+        public override bool IsDone()
+        {
+            return (currIndex >= aggregate.Count);
+        }
 
-
+        public override string CurrentItem()
+        {
+            if (!IsDone())
+                return aggregate[currIndex];
+            else
+                throw new Exception();
+        }
 
 
     }
