@@ -11,12 +11,12 @@ namespace IteratorApp
     // The abstract aggregate class
     public abstract class Aggregate : List<string>
     {
-        public abstract Iterator CreateIterator();
+        public abstract Iterator CreateIterator(IteratorType it);
     }
 
     public class ConcreteAggregate : Aggregate
     {
-        public Iterator CreateIterator(IteratorType it)
+        public override Iterator CreateIterator(IteratorType it)
         {
             Iterator retVal;
             switch(it)
@@ -45,9 +45,6 @@ namespace IteratorApp
             return new LetterIterator(ag);
         }
 
-        public override Iterator CreateIterator()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

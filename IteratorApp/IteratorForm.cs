@@ -20,7 +20,11 @@ namespace IteratorApp
             InitializeComponent();
             ConcreteAggregate ag = new ConcreteAggregate();
             Iterator iter = ag.CreateIterator(IteratorType.TotalIterator);
-            PopulateListBox(iter, lbTotalIterator);
+            lbTotalIterator.Items.Clear();
+            for (iter.First(); !iter.IsDone(); iter.Next())
+            {
+                lbTotalIterator.Items.Add(iter.CurrentItem());
+            }
         }
 
         private void LoadAg(ConcreteAggregate ag)
@@ -54,9 +58,14 @@ namespace IteratorApp
         private void btnLetterIterator_Click(object sender, EventArgs e)
         {
             Iterator iter = ag.CreateIterator(IteratorType.LetterIterator);
-            PopulateListBox(iter, lbLetterIterator);
+            for (iter.First(); !iter.IsDone(); iter.Next())
+            {
+                lbLetterIterator.Items.Add(iter.CurrentItem());
+            }
         }
 
+
+        //Windows Forms generated code
         private void label1_Click(object sender, EventArgs e)
         {
             

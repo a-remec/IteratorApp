@@ -13,7 +13,7 @@ namespace IteratorApp
         public abstract void First();
         public abstract void Next();
         public abstract bool IsDone();
-        public abstract object CurrentItem();
+        public abstract string CurrentItem();
     }
 
     public class ConcreteIterator : Iterator
