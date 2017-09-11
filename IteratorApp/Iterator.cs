@@ -63,26 +63,24 @@ namespace IteratorApp
         public override void First()
         {
             currIndex = 0;
-            for (int cI = 0; cI <= aggregate.Count; cI++)
+            for (int cI = 0; cI <= (aggregate.Count - 1); cI++)
             {
-                if (CurrentItem().ToLower().Contains('a'))
-                {
-                    currIndex = cI;
-                    break;
-                }
+                if (aggregate[cI].ToLower().Contains('a'))
+                    break; 
+                else
+                    currIndex++;
             }
         }
 
         public override void Next()
         {
             currIndex++;
-            for (int cI = currIndex; cI <= aggregate.Count; cI++)
+            for (int cI = currIndex; cI <= (aggregate.Count - 1) ; cI++)
             {
-                if (CurrentItem().ToLower().Contains('a'))
-                {
-                    currIndex = cI;
+                if (aggregate[cI].ToLower().Contains('a'))
                     break;
-                }
+                else
+                    currIndex++;
             }
         }
 

@@ -26,7 +26,7 @@ namespace IteratorApp
                     retVal = CreateTotalIterator(this);
                     break;
                 case IteratorType.LetterIterator:
-                    retVal = CreateTotalIterator(this);
+                    retVal = CreateLetterIterator(this);
                     break;
                 default:
                     retVal = CreateTotalIterator(this);
