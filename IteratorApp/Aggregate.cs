@@ -8,11 +8,12 @@ namespace IteratorApp
 {
     public enum IteratorType { TotalIterator, LetterIterator }
 
-    // The abstract aggregate class
+
     public abstract class Aggregate : List<string>
     {
         public abstract Iterator CreateIterator(IteratorType it);
     }
+
 
     public class ConcreteAggregate : Aggregate
     {
@@ -31,7 +32,6 @@ namespace IteratorApp
                     retVal = CreateTotalIterator(this);
                     break;
             }
-
             return retVal;
         }
 
@@ -44,7 +44,5 @@ namespace IteratorApp
         {
             return new LetterIterator(ag);
         }
-
-        
     }
 }

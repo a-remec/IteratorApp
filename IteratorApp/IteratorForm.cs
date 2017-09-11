@@ -19,6 +19,7 @@ namespace IteratorApp
         {
             InitializeComponent();
             ConcreteAggregate ag = new ConcreteAggregate();
+            LoadAg(ag);
             Iterator iter = ag.CreateIterator(IteratorType.TotalIterator);
             lbTotalIterator.Items.Clear();
             for (iter.First(); !iter.IsDone(); iter.Next())
@@ -46,18 +47,10 @@ namespace IteratorApp
             ag.Add("Derek");
         }
 
-        public void PopulateListBox(Iterator iter, ListBox lb)
-        {
-            lb.Items.Clear();
-            for (iter.First(); !iter.IsDone(); iter.Next())
-            {
-                lb.Items.Add(iter.CurrentItem());
-            }
-        }
-
         private void btnLetterIterator_Click(object sender, EventArgs e)
         {
             Iterator iter = ag.CreateIterator(IteratorType.LetterIterator);
+            lbLetterIterator.Items.Clear();
             for (iter.First(); !iter.IsDone(); iter.Next())
             {
                 lbLetterIterator.Items.Add(iter.CurrentItem());
