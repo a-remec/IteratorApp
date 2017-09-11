@@ -18,7 +18,7 @@ namespace IteratorApp
         public IteratorForm()
         {
             InitializeComponent();
-            ConcreteAggregate ag = new ConcreteAggregate();
+            ag = new ConcreteAggregate();
             LoadAg(ag);
             Iterator iter = ag.CreateIterator(IteratorType.TotalIterator);
             lbTotalIterator.Items.Clear();
@@ -49,11 +49,13 @@ namespace IteratorApp
 
         private void btnLetterIterator_Click(object sender, EventArgs e)
         {
-            Iterator iter = ag.CreateIterator(IteratorType.LetterIterator);
+
+            Iterator iteration = ag.CreateIterator(IteratorType.LetterIterator);
             lbLetterIterator.Items.Clear();
-            for (iter.First(); !iter.IsDone(); iter.Next())
+            for (iteration.First(); !iteration.IsDone(); iteration.Next())
             {
-                lbLetterIterator.Items.Add(iter.CurrentItem());
+                
+                lbLetterIterator.Items.Add(iteration.CurrentItem());
             }
         }
 
@@ -63,16 +65,13 @@ namespace IteratorApp
         {
             
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
-
         private void IteratorForm_Load(object sender, EventArgs e)
         {
 
         }
-
     }
 }

@@ -16,42 +16,7 @@ namespace IteratorApp
         public abstract string CurrentItem();
     }
 
-    public class ConcreteIterator : Iterator
-    {
-        int currIndex;
-
-        public ConcreteIterator(Aggregate ag)
-        {
-            aggregate = ag;
-        }
-
-        public override void First()
-        {
-            currIndex = 0;
-        }
-
-        public override void Next()
-        {
-            currIndex++;
-        }
-
-        public override bool IsDone()
-        {
-            return (currIndex >= aggregate.Count);
-        }
-
-        public override string CurrentItem()
-        {
-            if (!IsDone())
-                return aggregate[currIndex];
-            else
-                throw new Exception();
-        }
-
-
-    }
-
-    //
+    
     public class TotalIterator : Iterator
     {
         int currIndex;
@@ -83,10 +48,9 @@ namespace IteratorApp
             else
                 throw new Exception();
         }
-
     }
 
-    //
+    
     public class LetterIterator : Iterator
     {
         int currIndex;
@@ -101,21 +65,24 @@ namespace IteratorApp
             currIndex = 0;
             for (int cI = 0; cI <= aggregate.Count; cI++)
             {
-                if (aggregate[cI].ToLower().Contains('a'))
-                    break;              
-                else
-                    currIndex++;
+                if (CurrentItem().ToLower().Contains('a'))
+                {
+                    currIndex = cI;
+                    break;
+                }
             }
         }
 
         public override void Next()
         {
+            currIndex++;
             for (int cI = currIndex; cI <= aggregate.Count; cI++)
             {
-                if (aggregate[cI].ToLower().Contains('a'))
+                if (CurrentItem().ToLower().Contains('a'))
+                {
+                    currIndex = cI;
                     break;
-                else
-                    currIndex++;
+                }
             }
         }
 
@@ -132,5 +99,4 @@ namespace IteratorApp
                 throw new Exception();
         }
     }
-
 }

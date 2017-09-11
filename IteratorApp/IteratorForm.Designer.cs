@@ -83,6 +83,7 @@
             this.btnLetterIterator.TabIndex = 4;
             this.btnLetterIterator.Text = "Find names with \"A\"";
             this.btnLetterIterator.UseVisualStyleBackColor = true;
+            this.btnLetterIterator.Click += new System.EventHandler(this.btnLetterIterator_Click);
             // 
             // IteratorForm
             // 
